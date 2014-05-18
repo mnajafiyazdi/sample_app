@@ -1,10 +1,21 @@
 source 'https://rubygems.org'
 
+ruby '2.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.1'
+gem 'rails','4.1.1'
+
+group :development, :test do
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+	gem 'sqlite3'
+	gem 'rspec-rails'
+end
+
+group :test do
+	gem 'selennium-webdriver'
+	gem 'capybara'
+end
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -27,13 +38,12 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 
-# Add gems for development
-group :development do
-	# RSpec gem is for perofming a test driven development (TDD)
-	gem 'rspec-rails'
+group :doc do
+	gem 'sdoc', require: false
 end
 
-# Add gems for test
-group :test do
-	gem 'rspec'
+group :production do
+	gem 'pg'
+	gem 'rails_12factor'
 end
+
