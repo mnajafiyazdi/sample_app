@@ -24,3 +24,6 @@ doc/app
 
 # Ignore DS_Store
 .DS_Store
+
+# Security of database
+database.yml
