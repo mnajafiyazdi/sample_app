@@ -6,9 +6,11 @@ ruby '2.1.1'
 gem 'rails','4.1.1'
 gem 'pg', '~> 0.17.1'
 
+# Add Bootstrap framework
+gem 'bootstrap-sass'
+gem 'sprockets'
+
 group :development, :test do
-# Use sqlite3 as the database for Active Record
-#	gem 'sqlite3'
 	gem 'rspec-rails'
 	gem 'guard-rspec'
 	gem 'spork-rails'
