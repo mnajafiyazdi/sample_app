@@ -10,6 +10,9 @@ gem 'pg', '~> 0.17.1'
 gem 'bootstrap-sass'
 gem 'sprockets'
 
+# Add bcrupt gem for password authentication
+gem 'bcrypt-ruby'
+
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'guard-rspec'
