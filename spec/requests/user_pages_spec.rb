@@ -29,12 +29,31 @@ describe "UserPages" do
 		  fill_in "Email",			with: "user@example.com"
 		  fill_in "Password",		with: "foobar"
 		  fill_in "Confirmation",	with: "foobar"
-		  click_button "Create my account"
 		end
+
 		it "should create a user" do
 			expect {click_button submit}.to change(User, :count).by(1)
 		end
+
+		# Test after saving the user (giving flash success message)
+		describe "after saving the user" do
+			before { click_button submit }
+			let(:user) { User.find_by(email: 'user@example.com') }
+			it { should have_title(user.name) }
+			it { should have_selector('div.alert.alert-success', text: 'Welcome') }
+		end
+
 	end
+
+	# Test error messages
+	describe "after submission" do
+		before { click_button submit }
+		# should remain in the same page
+		it { should have_title('Sign Up') }
+		# should have shown some error message
+		it { should have_content('error') }
+	end
+
  end
 
 
